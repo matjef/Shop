@@ -1,0 +1,17 @@
+﻿a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+.featured-btn{
+  top: 7px;
+  right: 7px;
+  position: absolute;
+  color: #6c757d;
+  font-size: 22px;
+}
+
+.featured-btn.active{
+  color: #ffc107;
+}

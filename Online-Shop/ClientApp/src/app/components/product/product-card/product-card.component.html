@@ -1,0 +1,22 @@
+﻿<div class="card text-center bg-light">
+  <a [routerLink]="['/product/detail', product.id]">
+    <img src="{{product.image}}" class="card-img-top" alt="">
+  </a>
+  <div class="card-body">
+    <h5 class="card-title">
+      <a [routerLink]="['/product/detail', product.id]">
+        {{product.title}}
+      </a>
+    </h5>
+    <div class="card-subtitle mb-2"><b>${{product.price}}</b></div>
+
+      <a [routerLink]="['/product/edit', product.id]" class="btn btn-sm btn-primary mr-1" *ngIf="isAdminIn">Edit</a>
+      <button (click)="delete(product.id)" class="btn btn-sm btn-danger " *ngIf="isAdminIn">Delete</button>
+
+    <ng-container *ngIf="isLoggedIn">
+      <a *ngIf="product?.favorites" routerLink="#" (click)="removeFeat(product)" class="_icon-starSol featured-btn active"></a>
+      <a *ngIf="!product?.favorites" routerLink="#" (click)="addFeat(product)" class="_icon-starSol featured-btn"></a>
+    </ng-container>
+    <a *ngIf="!isLoggedIn" routerLink="/login" class="_icon-starSol featured-btn"></a>
+  </div>
+</div>

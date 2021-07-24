@@ -1,0 +1,24 @@
+<div class="row mt-5">
+  <div class="col">
+    <img src="{{product.image}}" class="img-fluid" alt="">
+  </div>
+  <div class="col align-self-center text-center">
+    <h2 class="mb-3">{{product.title}}</h2>
+    <p><b>${{product.price}}</b></p>
+    <p>{{product.description}}</p>
+    <div class="mb-3">
+      <a [routerLink]="['/product/edit', product.id]" class="btn btn-sm btn-primary mr-2" *ngIf="isAdminIn">Edit</a>
+      <button (click)="delete(product.id)" class="btn btn-sm btn-danger " *ngIf="isAdminIn">Delete</button>
+    </div>
+    <ng-container *ngIf="isLoggedIn">
+    <button *ngIf="!product?.favorites" (click)="addFeat(product)" class="btn btn-lg btn-warning">Add to Favorites
+    </button>
+    <button *ngIf="product?.favorites" (click)="removeFeat(product)" class="btn btn-lg btn-secondary">Delete from
+      Favorites
+    </button>
+    </ng-container>
+    <a *ngIf="!isLoggedIn" routerLink="/login" class="btn btn-lg btn-warning">Add to Favorites
+    </a>
+    <a class="btn btn-lg btn-light ml-3" routerLink="/catalog">Back to list</a>
+  </div>
+</div>

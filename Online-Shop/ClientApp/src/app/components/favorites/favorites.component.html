@@ -1,0 +1,7 @@
+﻿<div class="row mt-3">
+  <ng-container *ngFor="let p of products">
+    <div  class="col-sm-4 mb-4">
+      <product-card (refresh)="refreshProducts()" [(product)]="p" ></product-card>
+    </div>
+  </ng-container>
+</div>
